@@ -1,11 +1,7 @@
 package com.revature.revagenda_backend.services;
-
-import com.revature.revagenda_backend.exceptions.UsernameNotUniqueException;
 import com.revature.revagenda_backend.models.User;
 import com.revature.revagenda_backend.repositories.UserRepository;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
