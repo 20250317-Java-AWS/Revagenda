@@ -1,9 +1,12 @@
 package com.revature.revagenda_backend.models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Future;
 
 @Entity(name = "tasks")
+//@JsonIdentityReference(alwaysAsId = true)
 public class Task {
 
     @Id
@@ -17,8 +20,13 @@ public class Task {
     private String description;
 
     @Column(name = "due_date", nullable = false)
-    @Future
+//    @Future
     private String dueDate;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    @JsonBackReference
+    private User user;
 
     public Task() {
     }
@@ -66,5 +74,24 @@ public class Task {
 
     public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", dueDate='" + dueDate + '\'' +
+
+                '}';
     }
 }
