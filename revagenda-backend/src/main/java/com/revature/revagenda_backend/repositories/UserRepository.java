@@ -23,4 +23,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "FROM users WHERE username = 'Kyle'", nativeQuery = false)
     User findKyle();
 
+    //change for git
+
 }
