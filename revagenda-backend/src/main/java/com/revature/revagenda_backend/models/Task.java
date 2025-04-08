@@ -1,12 +1,23 @@
 package com.revature.revagenda_backend.models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Future;
 
 @Entity(name = "tasks")
 public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(nullable = false)
     private String title;
+
+    @Column()
     private String description;
+
+    @Column(name = "due_date", nullable = false)
+    @Future
     private String dueDate;
 
     public Task() {
