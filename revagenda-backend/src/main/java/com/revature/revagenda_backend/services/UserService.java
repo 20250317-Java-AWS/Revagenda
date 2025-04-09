@@ -25,6 +25,14 @@ public class UserService {
         return this.userRepository.findAll();
     }
 
+    public User findByUsername(String username) {
+        return this.userRepository.findUserByUsername(username);
+    }
+
+    public User findKyle() {
+        return this.userRepository.findKyle();
+    }
+
 
 
 }

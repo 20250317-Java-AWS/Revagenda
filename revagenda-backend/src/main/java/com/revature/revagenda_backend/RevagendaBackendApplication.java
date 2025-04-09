@@ -43,6 +43,10 @@ public class RevagendaBackendApplication {
 		ObjectMapper mapper = new ObjectMapper();
 		System.out.println(mapper.writeValueAsString(result));
 
+		User kyleResultByUSername = userService.findByUsername("Kyle");
+		System.out.println(kyleResultByUSername);
+
+		System.out.println(userService.findKyle());
 
 	}
 
